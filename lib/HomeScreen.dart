@@ -129,10 +129,56 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: kShadowColor)
                   ]),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Counter(),
+                  Counter(
+                    color: kInfectedColor,
+                    number: 1324,
+                    title: "Infected",
+                  ),
+                  Counter(
+                    color: kDeathColor,
+                    number: 87,
+                    title: "Deaths",
+                  ),
+                  Counter(
+                    color: kRecoverColor,
+                    number: 98,
+                    title: "Recovered",
+                  ),
                 ],
               ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Spread of virus",
+                  style: kTitleTextStyle,
+                ),
+                Text(
+                  "See details",
+                  style: TextStyle(
+                      color: kPrimaryColor,
+                      fontWeight: FontWeight.w600,
+                      shadows: [
+                        BoxShadow(
+                            offset: Offset(0, 10),
+                            blurRadius: 30,
+                            color: kShadowColor)
+                      ]),
+                )
+              ],
+            ),
+            Container(
+              height: 178,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20), color: Colors.white),
+              child: Image.asset("assets/images/map.png"),
             )
           ],
         ),
@@ -142,6 +188,17 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 class Counter extends StatelessWidget {
+  final int number;
+  final Color color;
+  final String title;
+
+  Counter({
+    Key? key,
+    this.number = 0,
+    this.color = Colors.black,
+    this.title = "",
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -151,21 +208,21 @@ class Counter extends StatelessWidget {
           width: 25,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: kInfectedColor.withOpacity(.26),
+            color: color.withOpacity(.26),
           ),
           child: Container(
             decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: Colors.transparent,
-                border: Border.all(color: kInfectedColor, width: 2)),
+                border: Border.all(color: color, width: 2)),
           ),
         ),
         SizedBox(
           height: 10,
         ),
-        Text("1324", style: TextStyle(fontSize: 40, color: kInfectedColor)),
+        Text(number.toString(), style: TextStyle(fontSize: 40, color: color)),
         Text(
-          "Infected",
+          title,
           style: kSubTextStyle,
         )
       ],
