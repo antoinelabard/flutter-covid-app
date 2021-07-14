@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_covid_19_app/widgets/Counter.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'Constants.dart';
 
@@ -162,71 +163,32 @@ class _HomeScreenState extends State<HomeScreen> {
                 Text(
                   "See details",
                   style: TextStyle(
-                      color: kPrimaryColor,
-                      fontWeight: FontWeight.w600,
-                      shadows: [
-                        BoxShadow(
-                            offset: Offset(0, 10),
-                            blurRadius: 30,
-                            color: kShadowColor)
-                      ]),
+                    color: kPrimaryColor,
+                    fontWeight: FontWeight.w600,
+                  ),
                 )
               ],
             ),
             Container(
               height: 178,
+              margin: EdgeInsets.only(top: 20),
+              padding: EdgeInsets.all(20),
               width: double.infinity,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20), color: Colors.white),
-              child: Image.asset("assets/images/map.png"),
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                        offset: Offset(0, 10),
+                        blurRadius: 30,
+                        color: kShadowColor)
+                  ]),
+              child: Image.asset("assets/images/map.png", fit: BoxFit.contain,),
             )
           ],
         ),
       ),
     ]));
-  }
-}
-
-class Counter extends StatelessWidget {
-  final int number;
-  final Color color;
-  final String title;
-
-  Counter({
-    Key? key,
-    this.number = 0,
-    this.color = Colors.black,
-    this.title = "",
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          height: 25,
-          width: 25,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: color.withOpacity(.26),
-          ),
-          child: Container(
-            decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.transparent,
-                border: Border.all(color: color, width: 2)),
-          ),
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Text(number.toString(), style: TextStyle(fontSize: 40, color: color)),
-        Text(
-          title,
-          style: kSubTextStyle,
-        )
-      ],
-    );
   }
 }
 
