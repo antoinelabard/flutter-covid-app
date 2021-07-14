@@ -53,6 +53,11 @@ flutter:
     - assets/icons/maps-and-flags.svg
     - assets/images/map.png
     - assets/images/headache.png
+    - assets/images/caugh.png
+    - assets/images/fever.png
+    - assets/images/wash_hands.png
+    - assets/images/wear_mask.png
+    - assets/icons/forward.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
