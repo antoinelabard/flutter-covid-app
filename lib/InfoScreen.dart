@@ -10,9 +10,9 @@ class InfoScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SingleChildScrollView(
-          child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
           Header(
             image: "assets/icons/coronadr.svg",
             textTop: "Get to know",
@@ -70,13 +70,15 @@ class InfoScreen extends StatelessWidget {
                   text:
                       "Since the start of the coronavirus outbreak some places have fully embraced washing hands",
                 ),
-                SizedBox(height: 50,)
+                SizedBox(
+                  height: 50,
+                )
               ],
             ),
           ),
-      ],
-    ),
-        ));
+        ],
+      ),
+    ));
   }
 }
 
@@ -145,7 +147,9 @@ class PreventCard extends StatelessWidget {
                   color: Colors.white,
                   boxShadow: [
                     BoxShadow(
-                        offset: Offset(0, 8), blurRadius: 24, color: kShadowColor)
+                        offset: Offset(0, 8),
+                        blurRadius: 24,
+                        color: kShadowColor)
                   ])),
           Image.asset(image),
           Positioned(
