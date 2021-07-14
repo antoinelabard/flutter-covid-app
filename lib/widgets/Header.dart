@@ -39,11 +39,14 @@ class Header extends StatelessWidget {
             Expanded(
                 child: Stack(
                   children: [
-                    SvgPicture.asset(
-                      image,
-                      width: 230,
-                      fit: BoxFit.fitWidth,
-                      alignment: Alignment.topCenter,
+                    Positioned(
+                      top: 0,//(widget.offset < 0) ? 0 : widget.offset,
+                      child: SvgPicture.asset(
+                        image,
+                        width: 230,
+                        fit: BoxFit.fitWidth,
+                        alignment: Alignment.topCenter,
+                      ),
                     ),
                     Positioned(
                         top: 20,

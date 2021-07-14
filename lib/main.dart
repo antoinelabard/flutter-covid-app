@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_covid_19_app/Constants.dart';
+import 'package:flutter_covid_19_app/InfoScreen.dart';
 
 import 'HomeScreen.dart';
 
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
           )
         )
       ),
-      home: HomeScreen(),
+      home: InfoScreen(),
     );
   }
 }
