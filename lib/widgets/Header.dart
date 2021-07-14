@@ -3,7 +3,11 @@ import 'package:flutter_covid_19_app/Constants.dart';
 import 'package:flutter_svg/svg.dart';
 
 class Header extends StatelessWidget {
-  const Header({Key? key}) : super(key: key);
+  final String image;
+  final String textTop;
+  final String textBottom;
+
+  const Header({Key? key, this.image = "", this.textTop = "", this.textBottom = ""}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +40,7 @@ class Header extends StatelessWidget {
                 child: Stack(
                   children: [
                     SvgPicture.asset(
-                      "assets/images/Drcorona.png",
+                      image,
                       width: 230,
                       fit: BoxFit.fitWidth,
                       alignment: Alignment.topCenter,
@@ -45,7 +49,7 @@ class Header extends StatelessWidget {
                         top: 20,
                         left: 150,
                         child: Text(
-                          'All you need is\nto stay at home.',
+                          '$textTop\n$textBottom',
                           style: kHeadingTextStyle.copyWith(color: Colors.white),
                         )),
                     Container()

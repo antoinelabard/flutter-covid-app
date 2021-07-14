@@ -14,7 +14,11 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Column(children: [
-      Header(),
+      Header(
+        image: "assets/icons/Drcorona.svg",
+        textTop: "All you need is",
+        textBottom: "to stay at home",
+      ),
       Container(
         height: 60,
         width: double.infinity,
@@ -39,6 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
               items: ['Indonesia', 'Bangladesh', 'United States', 'japan']
                   .map((e) => DropdownMenuItem(value: e, child: Text(e)))
                   .toList(),
+              onChanged: (value) {},
             ))
           ],
         ),
@@ -137,7 +142,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         blurRadius: 30,
                         color: kShadowColor)
                   ]),
-              child: Image.asset("assets/images/map.png", fit: BoxFit.contain,),
+              child: Image.asset(
+                "assets/images/map.png",
+                fit: BoxFit.contain,
+              ),
             )
           ],
         ),
