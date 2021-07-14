@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_covid_19_app/Constants.dart';
+import 'package:flutter_covid_19_app/InfoScreen.dart';
 import 'package:flutter_svg/svg.dart';
 
 class Header extends StatelessWidget {
@@ -7,7 +8,9 @@ class Header extends StatelessWidget {
   final String textTop;
   final String textBottom;
 
-  const Header({Key? key, this.image = "", this.textTop = "", this.textBottom = ""}) : super(key: key);
+  const Header(
+      {Key? key, this.image = "", this.textTop = "", this.textBottom = ""})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,39 +28,46 @@ class Header extends StatelessWidget {
                   Color(0xff3383cd),
                   Color(0xff11249f),
                 ]),
-            image: DecorationImage(
-                image: AssetImage("assets/images/virus.png"))),
+            image:
+                DecorationImage(image: AssetImage("assets/images/virus.png"))),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Align(
                 alignment: Alignment.topRight,
-                child: SvgPicture.asset("assets/icons/menu.svg")),
+                child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return InfoScreen();
+                      }));
+                    },
+                    child: SvgPicture.asset("assets/icons/menu.svg"))),
             SizedBox(
               height: 20,
             ),
             Expanded(
                 child: Stack(
-                  children: [
-                    Positioned(
-                      top: 0,//(widget.offset < 0) ? 0 : widget.offset,
-                      child: SvgPicture.asset(
-                        image,
-                        width: 230,
-                        fit: BoxFit.fitWidth,
-                        alignment: Alignment.topCenter,
-                      ),
-                    ),
-                    Positioned(
-                        top: 20,
-                        left: 150,
-                        child: Text(
-                          '$textTop\n$textBottom',
-                          style: kHeadingTextStyle.copyWith(color: Colors.white),
-                        )),
-                    Container()
-                  ],
-                ))
+              children: [
+                Positioned(
+                  top: 0, //(widget.offset < 0) ? 0 : widget.offset,
+                  child: SvgPicture.asset(
+                    image,
+                    width: 230,
+                    fit: BoxFit.fitWidth,
+                    alignment: Alignment.topCenter,
+                  ),
+                ),
+                Positioned(
+                    top: 20,
+                    left: 150,
+                    child: Text(
+                      '$textTop\n$textBottom',
+                      style: kHeadingTextStyle.copyWith(color: Colors.white),
+                    )),
+                Container()
+              ],
+            ))
           ],
         ),
       ),
